@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+{% for message in app.flashes('error') %}
+    <div class="alert alert-danger">{{ message }}</div>
+{% endfor %}
+
+{% if error %}
+    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Login</h2>
+
+            <!-- User Login Form -->
+            <form id="user-login-form" method="post" action="{{ path('login') }}">
+                <div class="form-group">
+                    <label for="user-username" class="font-weight-bold">Username</label>
+                    <input type="text" id="user-username" name="username" value="{{last_username}}" class="form-control" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-password" class="font-weight-bold">Password</label>
+                    <input type="password" id="user-password" name="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="user-remember_me" name="_remember_me" class="form-check-input">
+                    <label for="user-remember_me" class="form-check-label">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="{{ path('register') }}" class="btn btn-custom-secondary">Register New User</a>
+                <a href="{{ path('forgot_password') }}" class="btn btn-link mt-2">Forgot Password?</a>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{{ path('home') }}" class="btn btn-secondary mt-2">Home</a>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

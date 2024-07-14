@@ -1,0 +1,20 @@
+{# templates/homepage.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Currency Converter{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('error') %}
+            <div class="alert alert-danger">{{ message }}</div>
+{% endfor %}
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to Currency Converter!</h1>
+        <p class="lead">Easily convert currencies with our simple and intuitive tool.</p>
+        <hr class="my-4">
+        <p>Whether you're traveling, shopping online, or tracking investments, our currency converter makes it easy to stay up-to-date with the latest exchange rates.</p>
+        <a class="btn btn-primary btn-lg" href="{{ path('login') }}" role="button">Get Started</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Currency Converter{% endblock %}
+
+{% block body %}
+
+{% if success is defined and success %}
+        <div class="alert alert-success">{{ success }}</div>
+{% endif %}
+{% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+
+<div class="container">
+    <h2 class="text-center mb-4">Currency Converter</h2>
+    <form method="post" action="{{ path('currency_converter') }}">
+        <div class="form-group">
+            <label for="from_currency" class="font-weight-bold">From Currency</label>
+            <select id="from_currency" name="from_currency" class="form-control" required>
+                <option value="" disabled selected>Select a currency</option>
+                {% for currency in currencies %}
+                    <option value="{{ currency }}">{{ currency }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amount" class="font-weight-bold">Amount</label>
+            <input type="number" id="amount" name="amount" class="form-control" step="0.01" placeholder="Enter the amount" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Convert</button>
+    </form>
+    <div class="text-center mt-3">
+        <a href="{{ path('logout') }}" class="btn btn-secondary">Logout</a>
+    </div>
+
+
+    {% if converted is not empty%}
+        <h2>Converted Amounts</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for currency, amount in converted %}
+                    <tr>
+                        <td>{{ currency }}</td>
+                        <td>{{ amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+</div>
+{% endblock %}
