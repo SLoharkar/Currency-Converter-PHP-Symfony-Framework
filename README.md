@@ -39,7 +39,7 @@ The assignment is designed to test PHP and MVC skills, focusing on backend funct
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/SLoharkar/Currency-Converter-PHP-Symfony-Framework
+   git clone https://github.com/SLoharkar/Currency-Converter-PHP-Symfony-Framework.git
    cd Currency-Converter-PHP-Symfony-Framework
     ```
 
