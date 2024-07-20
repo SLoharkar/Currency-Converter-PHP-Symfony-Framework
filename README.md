@@ -123,5 +123,3 @@ Monolog is configured in `config/packages/monolog.yaml`:
 
 Check out our trailer video to get a quick overview of the **Currency Converter** application:
 
-https://github.com/user-attachments/assets/12536644-5ff2-4090-ad9b-92d8c5ba63c8
-
