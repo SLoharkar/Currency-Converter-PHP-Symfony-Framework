@@ -20,7 +20,7 @@
             <select id="from_currency" name="from_currency" class="form-control" required>
                 <option value="" disabled selected>Select a currency</option>
                 {% for currency in currencies %}
-                    <option value="{{ currency }}">{{ currency }}</option>
+                    <option value="{{ currency['name'] }}">{{ currency['name'] }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -45,10 +45,10 @@
                 </tr>
             </thead>
             <tbody>
-                {% for currency, amount in converted %}
+                {% for conversion in converted %}
                     <tr>
-                        <td>{{ currency }}</td>
-                        <td>{{ amount }}</td>
+                        <td>{{ conversion.name }}</td>
+                        <td>{{ conversion.converted_amount }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
