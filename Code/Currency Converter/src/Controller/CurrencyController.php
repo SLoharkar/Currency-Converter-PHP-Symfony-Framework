@@ -45,6 +45,7 @@ class CurrencyController extends AbstractController{
 
         // Load the available currencies from the currency service
         $currencies = $this->currencyService->loadCurrency();
+
         $converted = [];
 
         if ($request->isMethod('POST')){
@@ -55,7 +56,7 @@ class CurrencyController extends AbstractController{
 
             try {
                 // Call the conversion service and get the result
-                $converted = $this->currencyService->convert($from, $amount);
+                $converted = $this->currencyService->convertCurrency($currencies,$from,$amount);
 
                 $this->logger->info("Successfully converted $amount from $from.");
             }
@@ -65,7 +66,7 @@ class CurrencyController extends AbstractController{
         }
 
         return $this->render('currency_converter.html.twig', [
-            'currencies' => $currencies['currencies'],
+            'currencies' => $currencies,
             'converted' => $converted
         ]);    
     }
