@@ -8,7 +8,8 @@ The assignment is designed to test PHP and MVC skills, focusing on backend funct
 
 ## Features
 
-- **Currency Conversion**: Convert an amount from one currency to multiple target currencies.
+- **Currency Conversion**: Conversion of a specified amount from one currency to multiple other currencies.
+- **Exchange Rate Import**: Fetch exchange rates from the backend and load them into the form.
 - **User Authentication**: Secure login with username/password and IP-based restrictions.
 - **Remember Me**: Option for users to stay logged in across sessions.
 - **Role-Based View Management**: Different views and features based on user roles (Admin, User).
@@ -84,7 +85,11 @@ The assignment is designed to test PHP and MVC skills, focusing on backend funct
 
 ### Currency Conversion
 
-- Visit `/user/currency-converter` to use the currency conversion tool. Select the `FROM` currency, enter an amount, and convert it to multiple `TO` currencies.
+- The application automatically fetches live currency rates from [FloatRates](http://www.floatrates.com/json-feeds.html).
+- Select a "From" currency from the dropdown.
+- Enter the amount to be converted.
+- Click the "Convert" button to see the conversion table with live rates.
+
 
 ### Role-Based Views
 
