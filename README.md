@@ -51,8 +51,14 @@ The assignment is designed to test PHP and MVC skills, focusing on backend funct
    ```bash
    composer install
    ```
-
+   
 3. **Configure Environment Variables**
+
+   Copy the `.env.test` file to set up your environment variables:
+
+   ```bash
+   cp .env.test .env
+   ```
 
    Copy the `.env` file and set up your database connection and application secret:
 
@@ -61,7 +67,15 @@ The assignment is designed to test PHP and MVC skills, focusing on backend funct
    APP_SECRET="your_random_app_secret_key"
    ```
 
-4. **Import the Database Schema and Initial Data**
+4. **Update Composer Dependencies**
+
+   After setting up the environment variables, you can update the Composer dependencies to ensure you have the latest versions:
+
+   ```bash
+   composer update
+   ```
+
+5. **Import the Database Schema and Initial Data**
 
    **Import the `.sql` File**
 
@@ -71,9 +85,20 @@ The assignment is designed to test PHP and MVC skills, focusing on backend funct
    - Create a new database if you haven't already.
    - Import the `xampp.sql` file into the new database.
 
-5. **Access the Application**
+6. **Run the Application**
 
-   Open your web browser and navigate to [http://localhost:8000](http://localhost:8000).
+   You can run the Symfony application using the built-in PHP server. Use the following command:
+
+   ```bash
+   php -S localhost:3000 -t public
+   ```
+
+   Replace `localhost` with your IP address if you want to access the application from another device on your network.
+
+7. **Access the Application**
+
+   Open your web browser and navigate to [http://localhost:3000](http://localhost:3000) (or replace `localhost` with your IP address if applicable).
+
 
 ## Usage
 
